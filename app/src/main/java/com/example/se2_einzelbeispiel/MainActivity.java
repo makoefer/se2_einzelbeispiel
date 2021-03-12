@@ -27,14 +27,14 @@ public class MainActivity extends AppCompatActivity {
 
         submitButton = findViewById(R.id.button_submit);
         submitButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
+            public void onClick(@SuppressWarnings("UnusedParameters")View v) {
                 sendMessage();
             }
         });
 
         calculateButton = findViewById(R.id.button_Calculate);
         calculateButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
+            public void onClick(@SuppressWarnings("UnusedParameters")View v) {
                 makeCalculation();
             }
         });
@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
             s.join();
         } catch (InterruptedException ie) {
             Log.e("InterruptedException", ie.getMessage());
+            s.interrupt();
         }
         String serverAnswer = s.getAnswer();
         answerText.setText(serverAnswer);
