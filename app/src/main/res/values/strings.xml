@@ -4,4 +4,6 @@
     <string name="text_answer">Antwort des Servers:</string>
     <string name="text_question">Gib deine Matrikelnummer ein!</string>
     <string name="ABSCHICKEN">ABSCHICKEN</string>
+    <string name="btn_calculate">Berechnen</string>
+    <string name="textView_TitleOfCalculate">Berechnung durchführen:</string>
 </resources>
