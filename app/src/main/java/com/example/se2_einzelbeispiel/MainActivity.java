@@ -16,13 +16,11 @@ public class MainActivity extends AppCompatActivity {
     TextView answerText;
     Button submitButton;
     Button calculateButton;
-    TextView calcAnswerText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         matNrInput = findViewById(R.id.matNrInput);
         answerText = findViewById(R.id.textView_ServerAnswer);
@@ -34,15 +32,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        calcAnswerText = findViewById(R.id.textView_calculate);
-
         calculateButton = findViewById(R.id.button_Calculate);
         calculateButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 makeCalculation();
             }
         });
-
     }
 
 
@@ -68,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
         // 01617360 mod 7 = 3  -->  Quersumme als Binärzahl darstellen
 
         String matNrString = matNrInput.getText().toString();
-        calcAnswerText.setText("Test");
 
         int sum = 0;
         for (int i = 0; i < matNrString.length(); i++) {
@@ -79,6 +73,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        calcAnswerText.setText(Integer.toBinaryString(sum));
+        answerText.setText(Integer.toBinaryString(sum));
     }
 }

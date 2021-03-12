@@ -16,26 +16,27 @@ public class ServerThread extends Thread {
 
     public void run() {
 
-        try{
+        try {
 
-            String inputSentence = matNr;
+            String serverInput = matNr;
 
             Socket clientSocket = new Socket("se2-isys.aau.at", 53212);
 
-            DataOutputStream outStream = new DataOutputStream(clientSocket.getOutputStream());
-            BufferedReader inputFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+            DataOutputStream outputStream = new DataOutputStream(clientSocket.getOutputStream());
+            BufferedReader inputStreamFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 
-            outStream.writeBytes(inputSentence + "\n");
+            outputStream.writeBytes(serverInput + "\n");
 
-            answer = inputFromServer.readLine();
+            answer = inputStreamFromServer.readLine();
             clientSocket.close();
 
         } catch (Exception e) {
-            answer = "Not successful.";
+            answer = "Operation not successful.";
         }
 
     }
 
-    public String getAnswer() {return answer;}
-
+    public String getAnswer() {
+        return answer;
+    }
 }
