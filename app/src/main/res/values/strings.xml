@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">se2_einzelbeispiel</string>
+    <string name="NetworkTest">NetworkTest</string>
+    <string name="text_answer">Antwort des Servers:</string>
+    <string name="text_question">Gib deine Matrikelnummer ein!</string>
+    <string name="ABSCHICKEN">ABSCHICKEN</string>
 </resources>
