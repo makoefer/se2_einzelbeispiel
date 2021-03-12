@@ -10,10 +10,31 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    EditText matNrInput;
+    String matNr;
+    TextView answerText;
+    Button submitButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        matNrInput = findViewById(R.id.matNrInput);
+        answerText = findViewById(R.id.textView_ServerAnswer);
+
+        submitButton = findViewById(R.id.button_submit);
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                sendMessage();
+            }
+        });
+    }
+
+    private void sendMessage() {
+
+        matNr = matNrInput.getText().toString();
+        answerText.setText(matNr);
     }
 }
