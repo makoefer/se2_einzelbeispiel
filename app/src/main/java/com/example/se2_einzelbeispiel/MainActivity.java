@@ -3,6 +3,7 @@ package com.example.se2_einzelbeispiel;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,9 +33,22 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
     private void sendMessage() {
 
         matNr = matNrInput.getText().toString();
-        answerText.setText(matNr);
+
+        ServerThread s = new ServerThread(matNr);
+        s.start();
+
+        try {
+            s.join();
+        }
+        catch (InterruptedException ie) {
+            Log.e("InterruptedException", ie.getMessage());
+        }
+
+        String answer = s.getAnswer();
+        answerText.setText(answer);
     }
 }
